@@ -138,6 +138,9 @@ def predict_row(raw):
     prob = float(model.predict_proba(X)[:, 1][0])
     return prob, int(prob >= threshold)
 
+def hero(title, subtitle, eyebrow=""):
+    direction = "rtl" if is_ar else "ltr"
+    st.markdown(f'<div class="hero" dir="{direction}"><h1>{title}</h1><p>{subtitle}</p></div>', unsafe_allow_html=True)
 def metric(label, value, note=""):
     st.markdown(f'<div class="metric-card"><div class="metric-label">{label}</div><div class="metric-value">{value}</div><div class="metric-note">{note}</div></div>', unsafe_allow_html=True)
 

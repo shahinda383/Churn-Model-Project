@@ -138,10 +138,6 @@ def predict_row(raw):
     prob = float(model.predict_proba(X)[:, 1][0])
     return prob, int(prob >= threshold)
 
-def hero(title, subtitle, eyebrow="AI-POWERED CUSTOMER INTELLIGENCE"):
-    direction = "rtl" if is_ar else "ltr"
-    st.markdown(f'<div class="hero" dir="{direction}"><div class="eyebrow">{eyebrow}</div><h1>{title}</h1><p>{subtitle}</p></div>', unsafe_allow_html=True)
-
 def metric(label, value, note=""):
     st.markdown(f'<div class="metric-card"><div class="metric-label">{label}</div><div class="metric-value">{value}</div><div class="metric-note">{note}</div></div>', unsafe_allow_html=True)
 
@@ -293,5 +289,3 @@ elif page in ["About the Model", "عن الموديل"]:
         st.write(features)
     st.caption(tr("Model file is loaded locally from the same folder as app.py.", "يتم تحميل ملف الموديل محليًا من نفس فولدر app.py."))
 
-st.markdown("---")
-st.markdown(f'<p class="small-muted" style="text-align:center">✦ ChurnSense AI · {tr("Decision support, powered by machine learning", "دعم القرار باستخدام تعلم الآلة")} · v1.0</p>', unsafe_allow_html=True)
